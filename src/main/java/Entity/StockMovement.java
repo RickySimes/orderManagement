@@ -1,7 +1,6 @@
 package Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,12 +12,21 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class StockMovement {
 
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @Column(nullable = false)
     private LocalDateTime creationDate;
 
+    @ManyToOne
+    @JoinColumn(name = "item_id", nullable = false)
     private Item item;
 
+    @Column(nullable = false)
     private Integer stock;
 
+    @Column(nullable = false)
     private Integer remainingStock;
 
     public StockMovement(LocalDateTime creationDate, Item item, Integer stock, Integer remainingStock){
