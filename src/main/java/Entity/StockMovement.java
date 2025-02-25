@@ -29,10 +29,10 @@ public class StockMovement {
     @Column(nullable = false)
     private Integer remainingStock;
 
-    public StockMovement(LocalDateTime creationDate, Item item, Integer stock, Integer remainingStock){
-        this.creationDate = creationDate;
+    public StockMovement(Item item, Integer stock){
+        this.creationDate = LocalDateTime.now();
         this.item = item;
         this.stock = stock;
-        this.remainingStock = remainingStock;
+        this.remainingStock = stock;
     }
 }

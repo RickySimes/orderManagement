@@ -1,11 +1,10 @@
 package Repository;
 
 import Entity.StockMovement;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
 
 @Repository
-public interface StockMovementRepository {
-    Optional<StockMovement> findById(Long id);
+public interface StockMovementRepository extends JpaRepository<StockMovement, Long> {
 }

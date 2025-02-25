@@ -30,4 +30,11 @@ public class Order {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    public Order(Item item, Integer quantity, User user) {
+        this.creationDate = LocalDateTime.now();
+        this.item = item;
+        this.quantity = quantity;
+        this.user = user;
+    }
+
 }
